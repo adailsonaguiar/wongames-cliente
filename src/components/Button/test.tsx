@@ -1,17 +1,20 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import Button from '.'
 
 describe('<Button />', () => {
   it('should render the medium size by default', () => {
-    renderWithTheme(<Button>Loren Ipsum</Button>)
+    const { container } = renderWithTheme(<Button>Loren Ipsum</Button>)
 
     expect(screen.getByRole('button', { name: /Loren Ipsum/i })).toHaveStyle({
       height: '4rem',
       'font-size': '1.4rem',
       padding: '0.8rem 3.2rem'
     })
+
+    expect(container.firstChild).toMatchSnapshot()
   })
   it('should render the small size', () => {
     renderWithTheme(<Button size="small">Loren Ipsum</Button>)
@@ -38,5 +41,14 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /Loren Ipsum/i })).toHaveStyle({
       width: '100%'
     })
+  })
+  it('should render an icon versio', () => {
+    renderWithTheme(
+      <Button size="large" icon={<AddShoppingCart data-testid="icon" />}>
+        Loren Ipsum
+      </Button>
+    )
+    expect(screen.getByText(/loren ipsum/i)).toBeInTheDocument()
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 })
