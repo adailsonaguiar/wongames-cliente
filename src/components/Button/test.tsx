@@ -29,4 +29,14 @@ describe('<Button />', () => {
       padding: '0.8rem 4.8rem'
     })
   })
+  it('should render a full width version', () => {
+    renderWithTheme(
+      <Button size="large" fullWidth>
+        Loren Ipsum
+      </Button>
+    )
+    expect(screen.getByRole('button', { name: /Loren Ipsum/i })).toHaveStyle({
+      width: '100%'
+    })
+  })
 })
