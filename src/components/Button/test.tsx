@@ -42,7 +42,7 @@ describe('<Button />', () => {
       width: '100%'
     })
   })
-  it('should render an icon versio', () => {
+  it('should render an icon version', () => {
     renderWithTheme(
       <Button size="large" icon={<AddShoppingCart data-testid="icon" />}>
         Loren Ipsum
