@@ -33,11 +33,13 @@ describe('<Menu />', () => {
     renderWithTheme(<Menu />)
 
     expect(screen.getByText(/Log in now/i)).toBeInTheDocument()
+    expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
   })
 
   it('should show whishlist when logged in', () => {
     renderWithTheme(<Menu username="adailson" />)
 
     expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
+    expect(screen.queryByText(/Log in now/i)).not.toBeInTheDocument()
   })
 })
