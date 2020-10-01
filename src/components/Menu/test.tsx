@@ -28,4 +28,16 @@ describe('<Menu />', () => {
     expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
   })
+
+  it('should show registerbox when logged out', () => {
+    renderWithTheme(<Menu />)
+
+    expect(screen.getByText(/Log in now/i)).toBeInTheDocument()
+  })
+
+  it('should show whishlist when logged in', () => {
+    renderWithTheme(<Menu username="adailson" />)
+
+    expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
+  })
 })
