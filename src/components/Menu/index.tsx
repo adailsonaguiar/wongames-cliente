@@ -30,12 +30,6 @@ const Menu = ({ username }: MenuProps) => {
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Explore</S.MenuLink>
-          {!!username && (
-            <>
-              <S.MenuLink href="#">My account</S.MenuLink>
-              <S.MenuLink href="#">Wishlist</S.MenuLink>
-            </>
-          )}
         </S.MenuNav>
       </MediaMatch>
       <S.MenuGroup>
