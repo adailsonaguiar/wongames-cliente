@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
@@ -10,9 +11,11 @@ export const Wrapper = styled.menu`
 `
 
 export const LogoWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+  ${media.lessThan('medium')`
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  `}
 `
 
 export const IconWrapper = styled.div`
@@ -29,6 +32,7 @@ export const MenuGroup = styled.div`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
+    align-items: center;
 
     > div {
       margin-left: ${theme.spacings.xsmall};
@@ -39,7 +43,13 @@ type MenuFullProps = {
   isOpen: boolean
 }
 
-export const MenuNav = styled.div``
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan('medium')`
+      margin-left: ${theme.spacings.small}
+    `}
+  `}
+`
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
@@ -48,6 +58,9 @@ export const MenuLink = styled.a`
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
     text-align: center;
+    ${media.greaterThan('medium')`
+    color: ${theme.colors.white}
+    `}
 
     &:hover {
       &::after {
