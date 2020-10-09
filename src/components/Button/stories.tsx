@@ -17,7 +17,16 @@ Default.args = {
 
 export const WithIcon: Story<ButtonProps> = (args) => <Button {...args} />
 
-Default.args = {
+WithIcon.args = {
   children: 'Buy now',
   icon: <AddShoppingCart />
+}
+
+export const AsLink: Story<ButtonProps> = (args) => <Button as="a" {...args} />
+
+AsLink.args = {
+  size: 'large',
+  children: 'Loren Ipsum',
+  as: 'a',
+  href: '/link'
 }
