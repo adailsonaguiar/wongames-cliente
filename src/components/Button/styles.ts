@@ -50,5 +50,9 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!size && wrapperModifiers[size](theme)};
     ${!!fullWidth && wrapperModifiers.fullWidth()}
     ${!!hasIcon && wrapperModifiers.withIcon(theme)}
+
+    &:hover {
+      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+    }
   `}
 `
