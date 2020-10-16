@@ -16,6 +16,7 @@ describe('<Button />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
   it('should render the small size', () => {
     renderWithTheme(<Button size="small">Loren Ipsum</Button>)
 
@@ -24,6 +25,7 @@ describe('<Button />', () => {
       'font-size': '1.2rem'
     })
   })
+
   it('should render the large size', () => {
     renderWithTheme(<Button size="large">Loren Ipsum</Button>)
     expect(screen.getByRole('button', { name: /Loren Ipsum/i })).toHaveStyle({
@@ -32,6 +34,7 @@ describe('<Button />', () => {
       padding: '0.8rem 4.8rem'
     })
   })
+
   it('should render a full width version', () => {
     renderWithTheme(
       <Button size="large" fullWidth>
@@ -42,6 +45,7 @@ describe('<Button />', () => {
       width: '100%'
     })
   })
+
   it('should render an icon version', () => {
     renderWithTheme(
       <Button size="large" icon={<AddShoppingCart data-testid="icon" />}>
@@ -50,5 +54,18 @@ describe('<Button />', () => {
     )
     expect(screen.getByText(/loren ipsum/i)).toBeInTheDocument()
     expect(screen.getByTestId('icon')).toBeInTheDocument()
+  })
+
+  it('should render button as a link', () => {
+    renderWithTheme(
+      <Button as="a" href="http://teste.com">
+        Loren Ipsum
+      </Button>
+    )
+
+    expect(screen.getByRole('link', { name: /loren ipsum/i })).toHaveAttribute(
+      'href',
+      'http://teste.com'
+    )
   })
 })
