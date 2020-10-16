@@ -11,15 +11,16 @@ describe('<Banner />', () => {
         buttonLabel="Loren Ipsum"
         buttonLink="google.com"
         subtitle="subtitle test"
-        title="title test"
+        title="Let's go"
       />
     )
 
-    expect(screen.getByLabelText(/title test/i)).toBeInTheDocument()
-    expect(screen.getByText(/subtitle test/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/title test/)).toHaveAttribute(
-      'src',
-      'test.png'
-    )
+    expect(
+      screen.getByRole('heading', { name: /Let's go/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /subtitle test/i })
+    ).toBeInTheDocument()
+    expect(screen.getByLabelText(/Let's go/)).toHaveAttribute('src', 'test.png')
   })
 })
