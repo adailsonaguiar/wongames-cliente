@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import GameCard from '.'
@@ -26,5 +26,17 @@ describe('<GameCard />', () => {
       'src',
       props.img
     )
+  })
+
+  it('should render a line-through in price when promotional', () => {
+    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 15,00" />)
+
+    expect(screen.getByText(props.price)).toHaveStyle({
+      textDecoration: 'line-through'
+    })
+
+    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+      textDecoration: 'line-through'
+    })
   })
 })
