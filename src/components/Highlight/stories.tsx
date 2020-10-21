@@ -9,7 +9,8 @@ export default {
     subtitle: 'Heading 2',
     buttonLabel: 'Buy now',
     buttonLink: '/teste.com',
-    backgroundImage: '/img/back-hero.png'
+    backgroundImage: '/img/back-hero.png',
+    floatImage: 'img/float-hero.png'
   }
 } as Meta
 
