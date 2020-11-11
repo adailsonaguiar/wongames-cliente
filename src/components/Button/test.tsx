@@ -68,4 +68,17 @@ describe('<Button />', () => {
       'http://teste.com'
     )
   })
+
+  it('should render a minimal button', () => {
+    renderWithTheme(
+      <Button icon={<AddShoppingCart data-testid="icon" />} minimal>
+        Loren Ipsum
+      </Button>
+    )
+
+    expect(screen.getByRole('button', { name: /loren ipsum/i })).toHaveStyle({
+      background: 'none',
+      color: '#F231A5'
+    })
+  })
 })
