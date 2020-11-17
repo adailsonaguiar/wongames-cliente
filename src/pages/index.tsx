@@ -15,11 +15,11 @@ export function getStaticProps() {
       newGames: gameCardMock,
       mostPopularHighLight: highlihtMock,
       mostPopularGames: gameCardMock,
-      upcomingGames: gameCardMock,
-      upcomingHighLight: highlihtMock,
-      upcomingMoreGames: gameCardMock,
+      upcommingGames: gameCardMock,
+      upcommingHighligth: highlihtMock,
+      upcommingMoreGames: gameCardMock,
       freeGames: gameCardMock,
-      freeHighLight: highlihtMock
+      freeHighligth: highlihtMock
     }
   }
 }
