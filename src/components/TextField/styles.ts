@@ -1,8 +1,18 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { TextFieldProps } from '.'
 
-export const InputWrapper = styled.div`
-  ${({ theme }) => css`
+const inputWrapperModifiers = {
+  error: (theme: DefaultTheme) => css`
+    border-color: ${theme.colors.danger};
+
+    ${Icon} {
+      color: ${theme.colors.danger};
+    }
+  `
+}
+
+export const InputWrapper = styled.div<Pick<TextFieldProps, 'error'>>`
+  ${({ theme, error }) => css`
     display: flex;
     background: ${theme.colors.lightGray};
     border-radius: 0.2rem;
@@ -12,6 +22,8 @@ export const InputWrapper = styled.div`
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
+
+    ${!!error && inputWrapperModifiers.error(theme)}
   `}
 `
 
@@ -68,5 +80,12 @@ const wrapperModifiers = {
 export const Wrapper = styled.div<Pick<TextFieldProps, 'disabled'>>`
   ${({ disabled, theme }) => css`
     ${disabled && wrapperModifiers.disabled(theme)}
+  `}
+`
+
+export const Error = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.danger};
+    font-size: ${theme.font.sizes.xsmall}
   `}
 `

@@ -96,4 +96,16 @@ describe('<TextField />', () => {
     })
     expect(onInput).not.toHaveBeenCalled()
   })
+
+  it('should render a text if error passed', () => {
+    renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        error="this input has a error"
+      />
+    )
+
+    expect(screen.getByText(/this input has a error/i)).toBeInTheDocument()
+  })
 })
