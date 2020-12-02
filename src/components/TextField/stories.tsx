@@ -3,7 +3,7 @@ import { Email } from '@styled-icons/material-outlined'
 import TextField, { TextFieldProps } from '.'
 
 export default {
-  title: 'TextField',
+  title: 'Form/TextField',
   component: TextField,
   args: {
     label: 'E-mail',
@@ -11,11 +11,11 @@ export default {
     icon: <Email />,
     id: 'Email',
     initialValue: '',
-    placeholder: 'john.cage@gmail.com',
+    placeholder: 'john.cage@gmail.com'
   },
   argTypes: {
     onInput: { action: 'changed' },
-    icon: { type: '' },
+    icon: { type: '' }
   }
 } as Meta
 
