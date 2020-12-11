@@ -83,7 +83,7 @@ export const Wrapper = styled.div<Pick<TextFieldProps, 'disabled'>>`
   `}
 `
 
-export const Error = styled.span`
+export const Error = styled.legend`
   ${({ theme }) => css`
     color: ${theme.colors.danger};
     font-size: ${theme.font.sizes.xsmall}
