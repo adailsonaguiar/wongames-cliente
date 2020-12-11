@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import Auth from '.'
 
 describe('<Auth />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(
+    renderWithTheme(
       <Auth title="Title">
         <input type="text" />
       </Auth>
@@ -22,5 +22,7 @@ describe('<Auth />', () => {
         name: /is the best and most complete gaming platform/i
       })
     ).toBeInTheDocument()
+
+    expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
 })
