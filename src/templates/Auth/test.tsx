@@ -11,10 +11,6 @@ describe('<Auth />', () => {
       </Auth>
     )
 
-    expect(screen.getByRole('heading', { name: /Auth/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
-
     expect(
       screen.getByRole('heading', {
         name: /All your favorite games in one plac/i
