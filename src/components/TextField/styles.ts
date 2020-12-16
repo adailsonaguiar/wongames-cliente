@@ -52,12 +52,11 @@ export const Label = styled.label`
 export const Icon = styled.div<Pick<TextFieldProps, 'iconPosition'>>`
   ${({ theme, iconPosition }) => css`
     display: flex;
-    width: 2.2rem;
     color: ${theme.colors.gray};
     order: ${iconPosition === 'right' ? 1 : 0};
 
     & > svg {
-      width: 100%;
+      width: 2.2rem;
     }
   `}
 `
@@ -86,6 +85,6 @@ export const Wrapper = styled.div<Pick<TextFieldProps, 'disabled'>>`
 export const Error = styled.legend`
   ${({ theme }) => css`
     color: ${theme.colors.danger};
-    font-size: ${theme.font.sizes.xsmall}
+    font-size: ${theme.font.sizes.xsmall};
   `}
 `
