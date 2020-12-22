@@ -32,7 +32,7 @@ const FormSignIn = () => (
       </Button>
       <FormLink>
         Already have an account?
-        <Link href="/sign-up">
+        <Link href="/sign-in">
           <a>Sign in</a>
         </Link>
       </FormLink>
