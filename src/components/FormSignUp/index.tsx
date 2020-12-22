@@ -1,34 +1,39 @@
 import Link from 'next/link'
 import TextField from 'components/TextField'
-import { Lock, Email } from '@styled-icons/material-outlined'
+import { Lock, Email, Person } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 
-import * as S from './styles'
-import { FormLink, FormWrapper } from 'components/Form'
+import { FormWrapper, FormLink } from '../Form'
 
 const FormSignIn = () => (
   <FormWrapper>
     <form>
+      <TextField icon={<Person />} type="text" placeholder="Nome" name="nome" />
       <TextField
         icon={<Email />}
         type="email"
-        placeholder="email@email.com"
+        placeholder="Email"
         name="email"
       />
       <TextField
         icon={<Lock />}
         type="password"
-        placeholder="password"
+        placeholder="Password"
         name="password"
       />
-      <S.ForgotPassword href="/#">Forgot your password?</S.ForgotPassword>
+      <TextField
+        icon={<Lock />}
+        type="password"
+        placeholder="Confirm Password"
+        name="password"
+      />
       <Button size="large" fullWidth>
-        Sign in now
+        Sign up now
       </Button>
       <FormLink>
-        Don't have an account?
+        Already have an account?
         <Link href="/sign-up">
-          <a>Sign up</a>
+          <a>Sign in</a>
         </Link>
       </FormLink>
     </form>

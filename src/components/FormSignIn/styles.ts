@@ -1,14 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { lighten } from 'polished'
 
-export const Wrapper = styled.main``
+export const ForgotPassword = styled.a`
+  ${({ theme }) => css`
+    display: block;
+    text-decoration: none;
+    color: ${theme.colors.black};
+    text-align: right;
 
-export const ForgotPassword = styled.a``
-
-export const SignUpWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-
-  a {
-    margin-left: 0.2rem;
-  }
+    &:hover {
+      color: ${lighten(0.2, theme.colors.black)};
+    }
+  `}
 `
