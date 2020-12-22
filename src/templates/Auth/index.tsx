@@ -1,5 +1,6 @@
 import Heading from 'components/Heading'
 import Logo from 'components/Logo'
+import Link from 'next/link'
 import * as S from './styles'
 
 type AuthProps = {
@@ -11,7 +12,11 @@ const Auth = ({ title, children }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>
-        <Logo />
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
         <div>
           <Heading color="white" size="huge">
             All your favorite games in one place
@@ -25,7 +30,11 @@ const Auth = ({ title, children }: AuthProps) => (
     </S.BannerBlock>
     <S.FormContainer>
       <S.ContentWrapper>
-        <Logo size="large" color="black" id="form" />
+        <Link href="/">
+          <a>
+            <Logo size="large" color="black" id="form" />
+          </a>
+        </Link>
         <Heading lineColor="secondary" lineLeft>
           {title}
         </Heading>
