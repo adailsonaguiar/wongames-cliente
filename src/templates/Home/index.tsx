@@ -44,51 +44,37 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Container>
-        {/* <Heading lineLeft lineColor="secondary" color="white">
+      {/* <Heading lineLeft lineColor="secondary" color="white">
           News
         </Heading>
 
         <GameCardSlider items={newGames} color="black" /> */}
-        <ShowCase
-          heading="News"
-          gameCardItems={newGames}
-        />
-      </Container>
+      <ShowCase heading="News" gameCardItems={newGames} />
     </S.SectionNews>
 
-    <Container>
-      <S.SectionMostPopular>
-        <ShowCase
-          heading="Most Popular"
-          highlight={mostPopularHighLight}
-          gameCardItems={mostPopularGames}
-        />
-      </S.SectionMostPopular>
+    <S.SectionMostPopular>
+      <ShowCase
+        heading="Most Popular"
+        highlight={mostPopularHighLight}
+        gameCardItems={mostPopularGames}
+      />
+    </S.SectionMostPopular>
 
-      <S.SectionUpcoming>
-        <Heading lineLeft lineColor="secondary" color="white">
-          Upcomming
-        </Heading>
-        <GameCardSlider items={upcommingGames} />
-        <Highlight {...upcommingHighligth} />
-        <GameCardSlider items={upcommingMoreGames} />
-      </S.SectionUpcoming>
+    <S.SectionUpcoming>
+      <ShowCase heading="Upcomming" gameCardItems={upcommingGames} />
+      <ShowCase
+        highlight={upcommingHighligth}
+        gameCardItems={upcommingMoreGames}
+      />
+    </S.SectionUpcoming>
 
-      <S.SectionFreeGames>
-        {/* <Heading lineLeft lineColor="secondary" color="white">
-          Free games
-        </Heading>
-        <Highlight {...freeHighligth} />
-        <GameCardSlider items={freeGames} /> */}
-
-        <ShowCase
-          heading="Free games"
-          highlight={freeHighligth}
-          gameCardItems={freeGames}
-        />
-      </S.SectionFreeGames>
-    </Container>
+    <S.SectionFreeGames>
+      <ShowCase
+        heading="Free games"
+        highlight={freeHighligth}
+        gameCardItems={freeGames}
+      />
+    </S.SectionFreeGames>
 
     <S.SectionFooter>
       <Container>
