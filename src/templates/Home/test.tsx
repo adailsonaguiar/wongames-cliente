@@ -57,15 +57,11 @@ jest.mock('components/BannerSlider', () => {
 })
 
 describe('<Home />', () => {
-  it('should render menu and footer', () => {
+  it('should render banner and showCases', () => {
     renderWithTheme(<Home {...props} />)
-
-    expect(screen.getByTestId('MenuMock')).toBeInTheDocument()
 
     expect(screen.getByTestId('BannerSliderMock')).toBeInTheDocument()
 
     expect(screen.getAllByTestId('ShowCaseMock')).toHaveLength(5)
-
-    expect(screen.getByTestId('FooterMock')).toBeInTheDocument()
   })
 })
