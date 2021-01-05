@@ -1,54 +1,65 @@
-import styled, { css } from 'styled-components'
-import { RadioProps } from '.'
+import { screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { renderWithTheme } from 'utils/tests/helpers'
+import theme from 'styles/theme'
 
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`
+import Radio from '.'
 
-export const Input = styled.input`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    appearance: none;
-    width: 1.8rem;
-    height: 1.8rem;
-    border: 0.2rem solid ${theme.colors.primary};
-    border-radius: 50%;
-    background: transparent;
-    transition: background ${theme.transition.fast};
-    outline: none;
-    cursor: pointer;
+describe('<Radio />', () => {
+  it('should render with label (white)', () => {
+    const { container } = renderWithTheme(
+      <Radio label="Radio" labelFor="check" value="anyValue" />
+    )
 
-    &:focus {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
-    }
+    const label = screen.getByText('Radio')
+    expect(label).toBeInTheDocument()
+    expect(label).toHaveStyle({ color: theme.colors.white })
+    expect(container.firstChild).toMatchSnapshot()
+  })
 
-    &:before {
-      content: '';
-      width: 0.8rem;
-      height: 0.8rem;
-      border-radius: 50%;
-      background: ${theme.colors.primary};
-      transition: opacity ${theme.transition.fast};
-      opacity: 0;
-      position: absolute;
-    }
+  it('should render with label (black)', () => {
+    renderWithTheme(<Radio label="Radio" labelColor="black" />)
 
-    &:checked {
-      &:before {
-        opacity: 1;
-      }
-    }
-  `}
-`
+    const label = screen.getByText('Radio')
+    expect(label).toBeInTheDocument()
+    expect(label).toHaveStyle({ color: theme.colors.black })
+  })
 
-export const Label = styled.label<Pick<RadioProps, 'labelColor'>>`
-  ${({ theme, labelColor }) => css`
-    padding-left: ${theme.spacings.xxsmall};
-    color: ${theme.colors[labelColor!]};
-    line-height: 1;
-    cursor: pointer;
-  `}
-`
+  it('should render without label', () => {
+    renderWithTheme(<Radio />)
+
+    expect(screen.queryByLabelText('Radio')).not.toBeInTheDocument()
+  })
+
+  it('should dispatch onCheck when label status changes', async () => {
+    const onCheck = jest.fn()
+    renderWithTheme(
+      <Radio
+        label="Radio"
+        labelFor="Radio"
+        onCheck={onCheck}
+        value="anyValue"
+      />
+    )
+
+    expect(onCheck).not.toHaveBeenCalled()
+
+    userEvent.click(screen.getByLabelText('Radio'))
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
+    expect(onCheck).toHaveBeenCalledWith('anyValue')
+  })
+
+  it('Should be accessible with tab', () => {
+    renderWithTheme(<Radio label="Radio" labelFor="Radio" />)
+
+    const radio = screen.getByLabelText('Radio')
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(radio).toHaveFocus()
+  })
+})
