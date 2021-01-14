@@ -1,25 +1,28 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import GameMock from './mock'
 
 import GameInfo from '.'
 
-const props = {
-  title: 'Super Mario World',
-  description: 'In promotional price!',
-  price: '20.09'
-}
+const props = GameMock
 
 describe('<GameInfo />', () => {
   it('should render game informations', () => {
-    renderWithTheme(<GameInfo {...props} />)
+    const { container } = renderWithTheme(<GameInfo {...props} />)
 
     expect(
       screen.getByRole('heading', { name: props.title })
     ).toBeInTheDocument()
 
-    expect(screen.getByText(props.description)).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        /Fall Guys é um party game para multijogador com até 60 jogadores online, em uma louca corrida free-for-all, com rounds e rounds cada vez mais caóticos até sobrar um único vencedor!/i
+      )
+    ).toBeInTheDocument()
 
-    expect(screen.getByText(props.price)).toBeInTheDocument()
+    expect(screen.getByText(/37,99/i)).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render butons', () => {
