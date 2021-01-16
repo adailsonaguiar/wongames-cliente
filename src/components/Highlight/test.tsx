@@ -15,7 +15,7 @@ const props = {
 
 describe('<Highlight />', () => {
   it('should render headings and button', () => {
-    const { container } = renderWithTheme(<Highlight {...props} />)
+    renderWithTheme(<Highlight {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /heading 1/i })
