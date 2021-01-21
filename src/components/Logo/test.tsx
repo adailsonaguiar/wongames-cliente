@@ -44,7 +44,7 @@ describe('<Logo />', () => {
   })
 
   it('shold render logo with custom id', () => {
-    const {container} = renderWithTheme(<Logo id="test" />)
+    const { container } = renderWithTheme(<Logo id="test" />)
     expect(container.querySelector('#paint0_linear_test'))
   })
 })
