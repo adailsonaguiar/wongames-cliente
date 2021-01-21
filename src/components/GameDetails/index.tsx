@@ -7,12 +7,21 @@ import * as S from './styles'
 
 type Platform = 'windows' | 'mac' | 'linux'
 
+type Raiting = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
+
 export type GameDetailsProps = {
   platforms: Platform[]
   releaseDate: string
+  raiting: Raiting
+  genres: string[]
 }
 
-const GameDetails = ({ platforms = [], releaseDate }: GameDetailsProps) => {
+const GameDetails = ({
+  platforms = [],
+  releaseDate,
+  raiting,
+  genres
+}: GameDetailsProps) => {
   const platformType = {
     windows: <Windows title="Windows" size={18} />,
     mac: <Apple title="Apple" size={18} />,
@@ -56,11 +65,13 @@ const GameDetails = ({ platforms = [], releaseDate }: GameDetailsProps) => {
         </S.Block>
         <S.Block>
           <S.Label>Rating</S.Label>
-          <S.Description>18+</S.Description>
+          <S.Description>
+            {raiting === 'BR0' ? 'FREE' : `${raiting.replace('BR', '')}+`}
+          </S.Description>
         </S.Block>
         <S.Block>
           <S.Label>Genres</S.Label>
-          <S.Description>Action / Adventure</S.Description>
+          <S.Description>{genres.join(' / ')}</S.Description>
         </S.Block>
       </S.Content>
     </S.Wrapper>
