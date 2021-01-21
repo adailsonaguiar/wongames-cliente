@@ -6,16 +6,15 @@ type ButtonTypes =
   | ButtonHTMLAttributes<HTMLInputElement>
 
 export type ButtonProps = {
-  children?: React.ReactNode
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
-  icon?: React.ReactNode
+  icon?: JSX.Element
   onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void
   as?: React.ElementType
   minimal?: boolean
 } & ButtonTypes
 
-const Button: React.FowardRefRenderFunction<S.WrapperProps, ButtonProps> = (
+const Button: React.ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
   {
     children,
     size = 'medium',
