@@ -13,14 +13,18 @@ export type GameDetailsProps = {
   platforms: Platform[]
   releaseDate: string
   raiting: Raiting
+  developer: string
   genres: string[]
+  publisher: string
 }
 
 const GameDetails = ({
   platforms = [],
   releaseDate,
   raiting,
-  genres
+  genres,
+  developer,
+  publisher
 }: GameDetailsProps) => {
   const platformType = {
     windows: <Windows title="Windows" size={18} />,
@@ -39,7 +43,7 @@ const GameDetails = ({
       <S.Content>
         <S.Block>
           <S.Label>Developer</S.Label>
-          <S.Description>Gearbox Software</S.Description>
+          <S.Description>{developer}</S.Description>
         </S.Block>
         <S.Block>
           <S.Label>Release Date</S.Label>
@@ -61,7 +65,7 @@ const GameDetails = ({
         </S.Block>
         <S.Block>
           <S.Label>Publisher</S.Label>
-          <S.Description>2k</S.Description>
+          <S.Description>{publisher}</S.Description>
         </S.Block>
         <S.Block>
           <S.Label>Rating</S.Label>

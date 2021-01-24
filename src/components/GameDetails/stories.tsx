@@ -1,11 +1,12 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import GameDetails, { GameDetailsProps } from '.'
+import gameDetailsMock from './mock'
 
 export default {
   title: 'Game/GameDetails',
   component: GameDetails,
   parameters: { backgrounds: { default: 'won-dark' } },
-  args: { platforms: ['windows', 'linux', 'mac'] },
+  args: gameDetailsMock,
   argTypes: {
     platforms: {
       control: {
