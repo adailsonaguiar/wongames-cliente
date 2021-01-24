@@ -8,10 +8,19 @@ export default {
   parameters: { backgrounds: { default: 'won-dark' } },
   args: gameDetailsMock,
   argTypes: {
+    releaseDate: {
+      control: 'date'
+    },
     platforms: {
       control: {
         type: 'inline-check',
         options: ['windows', 'linux', 'mac']
+      }
+    },
+    genres: {
+      control: {
+        type: 'inline-check',
+        options: ['action', 'sci-fi']
       }
     }
   }
