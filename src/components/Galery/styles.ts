@@ -37,3 +37,21 @@ export const Wrapper = styled.div`
     `}
   `}
 `
+type ModalProps = { visible: boolean }
+
+const modalModfiers = {
+  open: () => css`
+    opacity: 1;
+  `,
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+}
+
+export const Modal = styled.div<ModalProps>`
+  ${({ visible }) => css`
+    ${!!visible && modalModfiers.open()}
+    ${!visible && modalModfiers.close()}
+  `}
+`
