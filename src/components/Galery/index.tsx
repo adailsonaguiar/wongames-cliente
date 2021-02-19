@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
+import { Close } from '@styled-icons/material-outlined/Close'
 
 import Slider, { SliderSettings } from 'components/Slider'
 
@@ -52,6 +53,16 @@ export type GalleryProps = {
 
 const Gallery = ({ items }: GalleryProps) => {
   const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const handleKeyUp = ({ key }: KeyboardEvent) => {
+      key === 'Escape' && setVisible(false)
+    }
+
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => window.removeEventListener('keyup', handleKeyUp)
+  }, [])
   return (
     <S.Wrapper>
       <Slider settings={settings}>
@@ -65,11 +76,15 @@ const Gallery = ({ items }: GalleryProps) => {
           />
         ))}
       </Slider>
-      <S.Modal
-        aria-label="modal"
-        aria-hidden={!visible}
-        visible={visible}
-      ></S.Modal>
+      <S.Modal aria-label="modal" aria-hidden={!visible} visible={visible}>
+        <S.BtnClose
+          onClick={() => setVisible(false)}
+          role="button"
+          aria-label="close modal"
+        >
+          <Close size={40} />
+        </S.BtnClose>
+      </S.Modal>
     </S.Wrapper>
   )
 }

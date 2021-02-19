@@ -37,6 +37,7 @@ export const Wrapper = styled.div`
     `}
   `}
 `
+
 type ModalProps = { visible: boolean }
 
 const modalModfiers = {
@@ -50,8 +51,32 @@ const modalModfiers = {
 }
 
 export const Modal = styled.div<ModalProps>`
-  ${({ visible }) => css`
+  ${({ visible, theme }) => css`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba(0,0,0, 0.7);
+    display: flex;
+    align-items: center:
+    justify-content: center;
+    z-index: ${theme.layers.modal};
+    transition: opacity ${theme.transition.default};
     ${!!visible && modalModfiers.open()}
     ${!visible && modalModfiers.close()}
+  `}
+`
+
+export const BtnClose = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: right;
   `}
 `
