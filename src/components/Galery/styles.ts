@@ -55,11 +55,11 @@ export const Modal = styled.div<ModalProps>`
     position: fixed;
     width: 100%;
     height: 100%;
-    top:0;
-    left:0;
-    background: rgba(0,0,0, 0.7);
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
-    align-items: center:
+    align-items: center;
     justify-content: center;
     z-index: ${theme.layers.modal};
     transition: opacity ${theme.transition.default};
@@ -79,4 +79,9 @@ export const BtnClose = styled.div`
     height: 100%;
     text-align: right;
   `}
+`
+
+export const Content = styled.div`
+  max-width: min(120rem, 100%);
+  max-height: 80rem;
 `
