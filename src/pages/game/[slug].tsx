@@ -1,6 +1,8 @@
 import Game, { GameTemplateProps } from 'templates/Game'
 
 import galeryImagesMock from 'components/Galery/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
@@ -147,7 +149,10 @@ export async function getStaticProps() {
         publisher: 'CD PROJECT RED',
         raiting: 'BR18',
         genres: ['Role-playing']
-      }
+      },
+      upcomingGames: gamesMock,
+      upcomingHighlights: highlightMock,
+      recommendedGames: gamesMock
     }
   }
 }
