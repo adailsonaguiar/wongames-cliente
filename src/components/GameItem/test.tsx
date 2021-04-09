@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import GameItem from '.'
 
@@ -10,7 +11,7 @@ const props = {
 
 describe('<GameItem />', () => {
   it('should render the heading', () => {
-    render(<GameItem {...props} />)
+    renderWithTheme(<GameItem {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /Title Mock/i })
