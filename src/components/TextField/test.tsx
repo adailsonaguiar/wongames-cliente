@@ -8,7 +8,7 @@ import TextField from '.'
 
 describe('<TextField />', () => {
   it('Renders with Label', () => {
-    renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
+    renderWithTheme(<TextField label="Label" name="Label" />)
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
@@ -31,7 +31,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        labelFor="TextField"
+        name="Name"
         id="TextField"
       />
     )
@@ -48,9 +48,7 @@ describe('<TextField />', () => {
   })
 
   it('Is accessible by tab', () => {
-    renderWithTheme(
-      <TextField label="TextField" labelFor="TextField" id="TextField" />
-    )
+    renderWithTheme(<TextField label="TextField" name="cpf" />)
 
     const input = screen.getByLabelText('TextField')
     expect(document.body).toHaveFocus()
@@ -79,7 +77,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        labelFor="TextField"
+        name="cpf"
         id="TextField"
         disabled
       />
@@ -99,11 +97,7 @@ describe('<TextField />', () => {
 
   it('should render a text if error passed', () => {
     renderWithTheme(
-      <TextField
-        label="TextField"
-        labelFor="TextField"
-        error="this input has a error"
-      />
+      <TextField label="TextField" name="cpf" error="this input has a error" />
     )
 
     expect(screen.getByText(/this input has a error/i)).toBeInTheDocument()
