@@ -2,7 +2,7 @@ import Heading from 'components/Heading'
 import { PaymentCard } from 'components/PaymentOptions'
 import * as S from './styles'
 
-type CardListProps = {
+export type CardListProps = {
   cards: PaymentCard[]
 }
 

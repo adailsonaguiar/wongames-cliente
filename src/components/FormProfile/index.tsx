@@ -5,7 +5,7 @@ import * as S from './styles'
 
 const FormProfile = () => (
   <S.Wrapper>
-    <Heading color="black" lineColor="primary" lineBottom>
+    <Heading color="black" lineColor="primary" lineBottom size="small">
       My Profile
     </Heading>
     <S.Form>
