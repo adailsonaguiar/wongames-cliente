@@ -12,7 +12,7 @@ export type ProfileTemplateProps = {
 const Profile = ({ children }: ProfileTemplateProps) => (
   <Base>
     <Container>
-      <Heading lineLeft lineColor="secondary">
+      <Heading lineLeft lineColor="secondary" color="white">
         My profile
       </Heading>
 
