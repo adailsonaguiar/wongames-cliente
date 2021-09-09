@@ -6,7 +6,7 @@ import * as S from './styles'
 
 const FormProfile = () => (
   <>
-    <Heading lineBottom color="white" size="small">
+    <Heading lineBottom size="small">
       My profile
     </Heading>
     <S.Form>
