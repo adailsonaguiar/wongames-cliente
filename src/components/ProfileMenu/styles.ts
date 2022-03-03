@@ -1,6 +1,8 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 
+export const Container = styled.div``
+
 export const Nav = styled.nav`
   ${({ theme }) => css`
     display: flex;
@@ -37,6 +39,7 @@ export const Link = styled.a<LinkProps>`
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: ${theme.spacings.xsmall} 0;
     text-decoration: none;
     transition: background, color, ${theme.transition.default};
