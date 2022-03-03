@@ -13,15 +13,7 @@ describe('<Form />', () => {
     )
 
     expect(container.parentElement).toMatchInlineSnapshot(`
-      .c0 .sc-AxhUy {
-        margin: 0.8rem 0;
-      }
-
-      .c0 .sc-AxheI {
-        margin: 3.2rem auto 0.8rem;
-      }
-
-      .c1 {
+      .c0 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -34,7 +26,7 @@ describe('<Form />', () => {
         color: #030517;
       }
 
-      .c1 a {
+      .c0 a {
         margin-left: 0.2rem;
         color: #3CD3C1;
         -webkit-text-decoration: none;
@@ -42,17 +34,17 @@ describe('<Form />', () => {
         border-bottom: 1px solid #3CD3C1;
       }
 
-      .c1 a:hover {
+      .c0 a:hover {
         color: #29b3a3;
       }
 
       <body>
         <div>
           <main
-            class="c0"
+            class=""
           >
             <div
-              class="c1"
+              class="c0"
             >
               My nice 
               <a
