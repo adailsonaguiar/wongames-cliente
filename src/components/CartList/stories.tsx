@@ -12,7 +12,7 @@ export default {
   },
   argTypes: {
     items: {
-      type: ''
+      // type: ''
     }
   },
   parameters: {
@@ -25,5 +25,11 @@ export default {
 export const Default: Story<CartListProps> = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} />
+  </div>
+)
+
+export const WithButton: Story<CartListProps> = (args) => (
+  <div style={{ maxWidth: 800 }}>
+    <CartList {...args} hasButton />
   </div>
 )
